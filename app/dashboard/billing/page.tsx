@@ -7,6 +7,7 @@ import { useUser } from "@clerk/nextjs";
 import axios from "axios";
 import { Loader2Icon } from "lucide-react";
 import moment from "moment";
+import Script from "next/script";
 import React, { useContext, useState } from "react";
 
 const Billing = () => {
@@ -14,10 +15,14 @@ const Billing = () => {
   const [loading,setLoading] = useState(false);
   const {user} = useUser();
   const {userSubscription,setUserSubscription} = useContext(UserSubscriptionContext);
+
+
   const createSubscription= ()=>{
+    console.log("start");
     setLoading(true);
     axios.post('/api/create-subscription',{})
     .then(resp=>{
+      console.log("print subscription id");
       console.log(resp.data);
       onPayment(resp.data.id)
     },(error)=>{
@@ -44,9 +49,11 @@ const Billing = () => {
       // @ts-ignore
       const rzp = new window.Razorpay(options);
       rzp.open();
+
   }
 
   const saveSubscription = async(paymentId:string)=>{
+console.log(" i am inside save subscription");
     const result =await db.insert(UserSubscription)
     .values({
       email:user?.primaryEmailAddress?.emailAddress,
@@ -64,7 +71,6 @@ const Billing = () => {
 
   return (
     <div className="flex flex-col items-center justify-center  bg-gray-100">
-      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
       <h1 className="text-3xl font-bold mb-8">Upgrade With Monthly Plan</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl">
         {/* Free Plan */}

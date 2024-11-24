@@ -45,7 +45,8 @@ const UsageTrack = () => {
     // @ts-ignore
     .where(eq(UserSubscription.email,user?.primaryEmailAddress?.emailAddress))
 
-    if(result){
+    console.log("db result",result);
+    if(result.length>0){
       setUserSubscription(true);
       setMaxWords(100000);
     }

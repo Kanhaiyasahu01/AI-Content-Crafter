@@ -24,6 +24,7 @@ const layout = ({
     <UserSubscriptionContext.Provider value={{userSubscription,setUserSubscription}}>
       <UpdateCreditUsageContext.Provider value={{updateCreditUsage,setUpdateCreditUsage}}>
     <div className='bg-slate-10
+
     0 h-screen '>
         <div className='md:w-64 hidden md:block fixed'>
             <SideNav />
