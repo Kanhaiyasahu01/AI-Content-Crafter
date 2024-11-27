@@ -104,7 +104,7 @@ console.log(" i am inside save subscription");
         <div className="p-6 bg-white shadow-md rounded-lg border border-gray-300">
           <h2 className="text-2xl font-bold mb-4">Monthly</h2>
           <p className="text-4xl font-bold mb-4">
-            9.99$<span className="text-lg font-medium">/month</span>
+          ₹100<span className="text-lg font-medium">/month</span>
           </p>
           <ul className="mb-6">
             <li className="flex items-center space-x-2">
